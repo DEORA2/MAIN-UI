@@ -505,7 +505,7 @@ function espLibrary:Load(renderValue)
                 objects.side.Transparency = self.options.healthTextTransparency;
                 objects.side.Color = color or self.options.healthTextColor;
                 objects.side.Text = health .. self.options.healthTextSuffix;
-                objects.side.Position = (healthBarPosition - 5)
+                objects.side.Position = healthBarPosition - 5
 
                 local curWeap
                 local e = pcall(function()
