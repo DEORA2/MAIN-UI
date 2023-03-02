@@ -41,24 +41,24 @@ local espLibrary = {
         outOfViewArrowsOutlineFilled = false,
         outOfViewArrowsOutlineColor = Color3.new(1, 1, 1),
         outOfViewArrowsOutlineTransparency = 1,
-        names = false,
+        names = true,
         nameTransparency = 1,
         nameColor = Color3.new(1, 1, 1),
-        boxes = false,
+        boxes = true,
         boxesTransparency = 1,
         boxesColor = Color3.new(1, 0, 0),
         boxFill = false,
         boxFillTransparency = 0.5,
         boxFillColor = Color3.new(1, 0, 0),
-        healthBars = false,
+        healthBars = true,
         healthBarsSize = 1,
         healthBarsTransparency = 1,
         healthBarsColor = Color3.new(0, 1, 0),
-        healthText = false,
+        healthText = true,
         healthTextTransparency = 1,
         healthTextSuffix = "%",
         healthTextColor = Color3.new(1, 1, 1),
-        distance = false,
+        distance = true,
         distanceTransparency = 1,
         distanceSuffix = " Studs",
         distanceColor = Color3.new(1, 1, 1),
@@ -66,9 +66,9 @@ local espLibrary = {
         tracerTransparency = 1,
         tracerColor = Color3.new(1, 1, 1),
         tracerOrigin = "Bottom", -- Available [Mouse, Top, Bottom]
-        showWeapon = false,
+        showWeapon = true,
         weaponColor = Color3.new(1, 1, 1),
-        chams = false,
+        chams = true,
         chamsFillColor = Color3.new(1, 0, 0),
         chamsFillTransparency = 0.5,
         chamsOutlineColor = Color3.new(),
@@ -451,7 +451,7 @@ function espLibrary:Load(renderValue)
                     enabled = false;
                 end
 
-                if (self.options.teamCheck and (team == self.getTeam(localPlayer))) or (team.Name == "TTT") then
+                if (self.options.teamCheck and (team == self.getTeam(localPlayer))) then
                     enabled = false;
                 end
 
@@ -521,7 +521,8 @@ function espLibrary:Load(renderValue)
                 objects.side_two.Transparency = 1;
                 objects.side_two.Color = color or self.options.weaponColor;
                 objects.side_two.Text = curWeap;
-		        objects.side_two.Position = round(position + vector2New(size.X * 0.5, -(objects.top.TextBounds.Y + 4)));
+                --objects.side_two.Position = round(position + vector2New(size.X + 3, 8));
+		        objects.side_two.Position = round(position + vector2New(size.X * 0.5, size.Y + 13));
 
                 objects.bottom.Visible = show and self.options.distance;
                 objects.bottom.Font = self.options.font;
@@ -599,7 +600,7 @@ function espLibrary:Load(renderValue)
                     canShow = false;
                 end
 
-                if (self.options.teamCheck and (team == self.getTeam(localPlayer))) or (team.Name == "TTT") then
+                if (self.options.teamCheck and (team == self.getTeam(localPlayer))) then
                     canShow = false;
                 end
 
@@ -647,4 +648,4 @@ function espLibrary:Load(renderValue)
     end);
 end
 
-return espLibrary;
+getgenv().esp = espLibrary
