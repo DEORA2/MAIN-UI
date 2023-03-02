@@ -505,8 +505,7 @@ function espLibrary:Load(renderValue)
                 objects.side.Transparency = self.options.healthTextTransparency;
                 objects.side.Color = color or self.options.healthTextColor;
                 objects.side.Text = health .. self.options.healthTextSuffix;
-                objects.side.Position = round(vector2New(position.X - (3 + 5), -3));
-                --round(position + vector2New(size.X + 3, -3));
+                objects.side.Position = (healthBarPosition - 5)
 
                 local curWeap
                 local e = pcall(function()
@@ -523,7 +522,7 @@ function espLibrary:Load(renderValue)
                 objects.side_two.Color = color or self.options.weaponColor;
                 objects.side_two.Text = curWeap;
                 --objects.side_two.Position = round(position + vector2New(size.X + 3, 8));
-		        objects.side_two.Position = round(position + vector2New(size.X + 3, -(objects.top.TextBounds.Y - 10)));
+                objects.side_two.Position = round(position + vector2New(size.X + 3, -(objects.top.TextBounds.Y - 10)));
 
                 objects.bottom.Visible = show and self.options.distance;
                 objects.bottom.Font = self.options.font;
