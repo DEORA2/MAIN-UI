@@ -522,7 +522,7 @@ function espLibrary:Load(renderValue)
                 objects.side_two.Color = color or self.options.weaponColor;
                 objects.side_two.Text = curWeap;
                 --objects.side_two.Position = round(position + vector2New(size.X + 3, 8));
-		        objects.side_two.Position = round(position + vector2New(size.X * 0.5, size.Y + 4));
+		        objects.side_two.Position = round(position + vector2New(size.X * 0.2, size.Y + 10));
 
                 objects.bottom.Visible = show and self.options.distance;
                 objects.bottom.Font = self.options.font;
