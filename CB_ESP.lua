@@ -471,7 +471,6 @@ function espLibrary:Load(renderValue)
                 local health, maxHealth = self.getHealth(player, character);
                 local healthBarSize = round(vector2New(self.options.healthBarsSize, -(size.Y * (health / maxHealth))));
                 local healthBarPosition = round(vector2New(position.X - (3 + healthBarSize.X), position.Y + size.Y));
-                local healthtextposition = round(vector2New(position.X - (-5 + healthBarSize.X), position.Y + size.Y));
 
                 local origin = self.options.tracerOrigin;
                 local show = canShow and enabled;
@@ -506,7 +505,7 @@ function espLibrary:Load(renderValue)
                 objects.side.Transparency = self.options.healthTextTransparency;
                 objects.side.Color = color or self.options.healthTextColor;
                 objects.side.Text = health .. self.options.healthTextSuffix;
-                objects.side.Position = healthtextposition
+                objects.side.Position = round(position + vector2New(size.X - 30, -3));
 
                 local curWeap
                 local e = pcall(function()
