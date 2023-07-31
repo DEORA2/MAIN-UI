@@ -5,6 +5,8 @@ for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui:GetChildren())
         pcall(function()
             if getsenv(v).firebullet then
                 fluxusfix = getsenv(v)
+            else
+                print("Cannot Find Game Client Script")
             end
         end)
     end
