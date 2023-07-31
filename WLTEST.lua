@@ -1,4 +1,4 @@
-local fluxusfix = nil
+local fluxusfix
 
 for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui:GetChildren()) do
     if v.ClassName == "LocalScript" then
